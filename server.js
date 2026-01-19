@@ -1,16 +1,18 @@
- const express= require("express");
- const app = express();
- const db =require("./db");
+const express = require("express");
+const app = express();
+const db = require("./db");
+require('dotenv').config();
+
 //       
 
- const bodyParser= require('body-parser');
- app.use(bodyParser.json()); // req.body
+const bodyParser = require('body-parser');
+app.use(bodyParser.json()); // req.body
+const PORT = process.env.PORT || 3000;
 
-
- app.get('/',function(req,res){
-    res.send("Welcome to my hotel... Create a my first database ")
- });
- //POST route to add a person
+app.get('/', function (req, res) {
+   res.send("Welcome to my hotel... Create a my first database ")
+});
+//POST route to add a person
 //  app.post('/Person',async(req,res)=>{
 //    try {
 //       const data = req.body
@@ -21,7 +23,7 @@
 //    } catch (err) {
 //       console.log(err)
 //       res.status(500).json({error:"Internal data is not send"})
-      
+
 //    }
 // });
 // get routes funcation
@@ -35,12 +37,12 @@
 //    res.status(500).json({error:"Data is not Found"})
 // }
 // });
-   //  const data = req.body  //Asuming the request body contains the person data
+//  const data = req.body  //Asuming the request body contains the person data
 //old method 
-   //{Create a  new person document using the Mongoose model
-   //  const newPerson = new Person(data);
-   
-  //save the new person data to the database
+//{Create a  new person document using the Mongoose model
+//  const newPerson = new Person(data);
+
+//save the new person data to the database
 
 //   newPerson.save((error, savedPerson)=>{
 //    if(error){
@@ -52,7 +54,7 @@
 //       res.status(200).json(savedPerson);}
 //   
 //   });
- 
+
 // app.get('/person/:workType',async (req, res)=>{
 //  try {
 //      const workType = req.params.workType; //Extract the work type from the URL parameter
@@ -71,8 +73,7 @@
 // })
 const personRoutes = require('./routes/personRoutes');
 app.use('/person', personRoutes);
- app.listen(3000,()=>{
-    console.log('My new hotles , plz visit here any time ')
- });
+app.listen(PORT, () => {
+   console.log('My new hotles , plz visit here any time ')
+});
 
-   //coment add this section
