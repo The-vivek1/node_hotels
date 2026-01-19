@@ -10,7 +10,7 @@ app.use(bodyParser.json()); // req.body
 const PORT = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
-   res.send("Welcome to my hotel... Create a my first database ")
+   res.send("Welcome to my hotel...  ")
 });
 //POST route to add a person
 //  app.post('/Person',async(req,res)=>{
