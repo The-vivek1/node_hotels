@@ -3,11 +3,17 @@ const app = express();
 const db = require("./db");
 require('dotenv').config();
 
-//       
+//   used to parese req.body in express ->PUT or POST
+   // npm install body-parser 
+  
 
 const bodyParser = require('body-parser');
+//specifically parse JSON data $ add it to the request.body object
 app.use(bodyParser.json()); // req.body
 const PORT = process.env.PORT || 3000;
+
+
+
 
 app.get('/', function (req, res) {
    res.send("Welcome to my hotel...  ")
